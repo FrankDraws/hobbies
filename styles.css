@@ -10,6 +10,8 @@
 
 	--beach-teal:   #1FA9A5; /* teal water */
 	--beach-salmon: #FF7F6E; /* salmon sunset */
+    --beach-salmon-dark: #CC6658; /* dark salmon */
+    --beach-salmon-dark-rgb: 204 102 88; /* #CC6658 */
 	--beach-sand:   #E8D7B6; /* warm sand */
 	--beach-seafoam:#BFE7D1; /* seafoam */
 	--beach-sky:    #8CCEF1; /* clear sky */
@@ -70,11 +72,11 @@ html, body {
 }
 
 body {
-	background-color: var(--bgc);
+	background-color: var(--beach-salmon);
 	font-family: var(--bodyFont);
 	display: grid;
 	place-items: center;
-	color: var(--textcolor)
+	color: white;
 }
 
 section {
@@ -139,7 +141,9 @@ h2 {
   padding-bottom: 0.4em;
   /* margin-bottom: 1.5em; */
   margin-top: 1.5em;
-  color: var(--beach-salmon)
+  color: var(--beach-sky);
+  /* text-shadow: 1px 4px 7px rgba(0,0,0, 0.5); */
+  text-shadow: 1px 4px 7px rgba(var(--beach-salmon-dark-rgb));
 }
 
 h3 {
