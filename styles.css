@@ -6,6 +6,15 @@
 	--bgc: #e7e5e7;
 	--bodyFont: "Georgia", serif;
 	--h1f: "Helvetica", sans-serif;
+	--textcolor: #444;
+
+	--beach-teal:   #1FA9A5; /* teal water */
+	--beach-salmon: #FF7F6E; /* salmon sunset */
+	--beach-sand:   #E8D7B6; /* warm sand */
+	--beach-seafoam:#BFE7D1; /* seafoam */
+	--beach-sky:    #8CCEF1; /* clear sky */
+	--beach-sun:    #FFD26A; /* golden sun */
+	--beach-coral:  #FFB38A; /* coral shell */
 
 	--breakout-size: 80vw; /* Change this to 120vw, 90vw, etc. */
 
@@ -65,24 +74,20 @@ body {
 	font-family: var(--bodyFont);
 	display: grid;
 	place-items: center;
+	color: var(--textcolor)
 }
 
 section {
 	margin-top: 2.5em;
 	padding-bottom: 2em;
 	margin-bottom: 10em;
-
+}
+#intro {
+	color: var(--beach-teal)
+	margin-bottom: 1em;
 }
 blockquote {
 	margin-bottom: 2em;
-}
-
-ul, ol {
-	margin-bottom: 1.5em;
-	margin-top: 0;
-}
-li {
-	margin-bottom: 1em;
 }
 hr {
 	border: 0;
@@ -122,6 +127,8 @@ h1 {
   padding-bottom: 0.4em;
   /* margin-bottom: 1.5em; */
   margin-top: 1.5em;
+  border-bottom: 2px solid;
+  font-family: "Helvetica", sans-serif;
 }
 
 h2 {
@@ -129,7 +136,10 @@ h2 {
   --fluid-type-max: var(--h2-max);
   --fluid-type-target: var(--h2-target);
   max-width: 30ch;
-  padding-bottom: 1em;
+  padding-bottom: 0.4em;
+  /* margin-bottom: 1.5em; */
+  margin-top: 1.5em;
+  color: var(--beach-salmon)
 }
 
 h3 {
@@ -158,9 +168,14 @@ li {
 }
 p {
   margin-bottom: 1em;
-
 }
-
+ul, ol {
+	margin-bottom: 1.5em;
+	margin-top: 0;
+}
+li {
+	margin-bottom: 15px;
+}
 blockquote {
   --fluid-type-min: var(--blockquote-min);
   --fluid-type-max: var(--blockquote-max);
