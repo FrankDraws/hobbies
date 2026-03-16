@@ -141,7 +141,7 @@ h2 {
   padding-bottom: 0.4em;
   /* margin-bottom: 1.5em; */
   margin-top: 1.5em;
-  color: var(--beach-sky);
+  color: var(--beach-sun);
   /* text-shadow: 1px 4px 7px rgba(0,0,0, 0.5); */
   text-shadow: 1px 4px 7px rgba(var(--beach-salmon-dark-rgb));
 }
