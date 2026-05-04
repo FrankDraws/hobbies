@@ -1,208 +1,396 @@
 /*
-	CSS resets
-	YouTube vid: https://www.youtube.com/watch?v=Yl8hg2FG20Q&list=PLA0l4VLT9AlkOlAf2mHweBODcmG7FqHYo&index=10
+  Hobbies for Learning
+  Design: Two Portraits of God aesthetic system
+  Typography: Font Clamp system preserved from original styles.css
 */
+
+/* ── Design Tokens (from Two Portraits of God) ── */
 :root {
-	--bgc: #e7e5e7;
-	--bodyFont: "Georgia", serif;
-	--h1f: "Helvetica", sans-serif;
-	--textcolor: #444;
+  --bg:              #f5f0e8;
+  --surface:         #ede7d9;
+  --border:          #c8bda8;
+  --border-light:    #ddd5c4;
 
-	--beach-teal:   #1FA9A5; /* teal water */
-	--beach-salmon: #FF7F6E; /* salmon sunset */
-    --beach-salmon-dark: #CC6658; /* dark salmon */
-    --beach-salmon-dark-rgb: 204 102 88; /* #CC6658 */
-	--beach-sand:   #E8D7B6; /* warm sand */
-	--beach-seafoam:#BFE7D1; /* seafoam */
-	--beach-sky:    #8CCEF1; /* clear sky */
-	--beach-sun:    #FFD26A; /* golden sun */
-	--beach-coral:  #FFB38A; /* coral shell */
+  --accent:          #8b3a1a;   /* fire / terracotta */
+  --accent-dim:      #b5623a;
+  --accent-bg:       #fdf6ee;
+  --accent-header:   #f9ede0;
 
-	--breakout-size: 80vw; /* Change this to 120vw, 90vw, etc. */
+  --deep:            #2c4a3e;   /* father / forest */
+  --deep-dim:        #4a7a68;
+  --deep-bg:         #f0f5f2;
+  --deep-header:     #e4efe9;
 
-	--font-scale: 1.2; /* Change this to scale all fonts, e.g. 1.4 for +40% */
+  --text:            #1e1a14;
+  --muted:           #8a7f6e;
+  --label:           #a89880;
 
-	--h1-min: calc(2rem * var(--font-scale));
-	--h1-max: calc(3.5rem * var(--font-scale));
-	--h1-target: calc(5.5vw * var(--font-scale));
+  /* Font Clamp scale */
+  --font-scale: 1.0;
 
-	--h2-min: calc(1.8rem * var(--font-scale));
-	--h2-max: calc(3rem * var(--font-scale));
-	--h2-target: calc(4.5vw * var(--font-scale));
+  --h1-min:    calc(1.8rem * var(--font-scale));
+  --h1-max:    calc(3.2rem * var(--font-scale));
+  --h1-target: calc(5vw   * var(--font-scale));
 
-	--h3-min: calc(1.5rem * var(--font-scale));
-	--h3-max: calc(2.5rem * var(--font-scale));
-	--h3-target: calc(3.5vw * var(--font-scale));
+  --h2-min:    calc(1.3rem * var(--font-scale));
+  --h2-max:    calc(2.2rem * var(--font-scale));
+  --h2-target: calc(3.5vw  * var(--font-scale));
 
-	--h4-min: calc(1rem * var(--font-scale));
-	--h4-max: calc(1.5rem * var(--font-scale));
-	--h4-target: calc(2.8vw * var(--font-scale));
+  --h3-min:    calc(1.1rem * var(--font-scale));
+  --h3-max:    calc(1.8rem * var(--font-scale));
+  --h3-target: calc(2.8vw  * var(--font-scale));
 
-	--p-min: calc(1rem * var(--font-scale));
-	--p-max: calc(1.3rem * var(--font-scale));
-	--p-target: calc(2vw * var(--font-scale));
+  --p-min:     calc(0.95rem * var(--font-scale));
+  --p-max:     calc(1.15rem * var(--font-scale));
+  --p-target:  calc(1.8vw   * var(--font-scale));
 
-	--blockquote-min: calc(1.2rem * var(--font-scale));
-	--blockquote-max: calc(1.6rem * var(--font-scale));
-	--blockquote-target: calc(2.5vw * var(--font-scale));
-
-	--btn-min: calc(0.875rem * var(--font-scale));
-	--btn-max: calc(1.125rem * var(--font-scale));
-	--btn-target: calc(1.8vw * var(--font-scale));
-}
-/*
-  Styles
-*/
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  --li-min:    calc(0.95rem * var(--font-scale));
+  --li-max:    calc(1.1rem  * var(--font-scale));
+  --li-target: calc(1.6vw   * var(--font-scale));
 }
 
-* {
-  margin: 0;
-}
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Base ── */
 html, body {
   width: 100%;
   min-height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-	background-color: var(--beach-salmon);
-	font-family: var(--bodyFont);
-	display: grid;
-	place-items: center;
-	color: white;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(139,58,26,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(44,74,62,0.04) 0%, transparent 60%);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1.5rem 7rem;
 }
 
-section {
-	margin-top: 2.5em;
-	padding-bottom: 2em;
-	margin-bottom: 10em;
-}
-#intro {
-	color: var(--beach-teal)
-	margin-bottom: 1em;
-}
-blockquote {
-	margin-bottom: 2em;
-}
-hr {
-	border: 0;
-	  height: 1px;
-	  background-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-	  margin: 7em 0;
-}
-/*
-  Font Clamp (Original)
-  https://piccalil.li/tutorial/fluid-typography-with-css-clamp/
-
-  Font Clamp 2.0. Updated using ChatGPT.
-  May 1, 2025
-  https://chatgpt.com/canvas/shared/6814278fe8f48191888a2026ebd35002
-*/
-h1,
-h2,
-h3,
-h4,
-p,
-li,
-blockquote,
-button {
-  font-size: clamp(
-	var(--fluid-type-min, 1rem),
-	calc(1rem + var(--fluid-type-target, 3vw)),
-	var(--fluid-type-max, 1.3rem)
-  );
-}
-
+/* ── Font Clamp Application ── */
 h1 {
-  --fluid-type-min: var(--h1-min);
-  --fluid-type-max: var(--h1-max);
-  --fluid-type-target: var(--h1-target);
-  max-width: 30ch;
-  line-height: 1;
-  padding-bottom: 0.4em;
-  /* margin-bottom: 1.5em; */
-  margin-top: 1.5em;
-  border-bottom: 2px solid;
-  font-family: "Helvetica", sans-serif;
+  font-size: clamp(var(--h1-min), calc(1rem + var(--h1-target)), var(--h1-max));
 }
-
 h2 {
-  --fluid-type-min: var(--h2-min);
-  --fluid-type-max: var(--h2-max);
-  --fluid-type-target: var(--h2-target);
-  max-width: 30ch;
-  padding-bottom: 0.4em;
-  /* margin-bottom: 1.5em; */
-  margin-top: 1.5em;
-  color: var(--beach-sun);
-  /* text-shadow: 1px 4px 7px rgba(0,0,0, 0.5); */
-  text-shadow: 1px 4px 7px rgba(var(--beach-salmon-dark-rgb));
+  font-size: clamp(var(--h2-min), calc(1rem + var(--h2-target)), var(--h2-max));
 }
-
 h3 {
-  --fluid-type-min: var(--h3-min);
-  --fluid-type-max: var(--h3-max);
-  --fluid-type-target: var(--h3-target);
-  max-width: 30ch;
-  padding-bottom: 1.5em;
+  font-size: clamp(var(--h3-min), calc(1rem + var(--h3-target)), var(--h3-max));
 }
-
-h4 {
-  --fluid-type-min: var(--h4-min);
-  --fluid-type-max: var(--h4-max);
-  --fluid-type-target: var(--h4-target);
-  max-width: 40ch;
-  padding-bottom: 1em;
-}
-
-p,
-li {
-  --fluid-type-min: var(--p-min);
-  --fluid-type-max: var(--p-max);
-  --fluid-type-target: var(--p-target);
-  max-width: 60ch;
-  line-height: 1.3;
-}
-p {
-  margin-bottom: 1em;
-}
-ul, ol {
-	margin-bottom: 1.5em;
-	margin-top: 0;
+p, li {
+  font-size: clamp(var(--p-min), calc(1rem + var(--p-target)), var(--p-max));
 }
 li {
-	margin-bottom: 15px;
-}
-blockquote {
-  --fluid-type-min: var(--blockquote-min);
-  --fluid-type-max: var(--blockquote-max);
-  --fluid-type-target: var(--blockquote-target);
-  font-style: italic;
-  border-left: 4px solid #42047e;
-  /* margin-left: 0; */
-  padding-left: 1em;
-  max-width: 60ch;
+  font-size: clamp(var(--li-min), calc(1rem + var(--li-target)), var(--li-max));
 }
 
-button {
-  --fluid-type-min: var(--btn-min);
-  --fluid-type-max: var(--btn-max);
-  --fluid-type-target: var(--btn-target);
-  padding: 0.6em 1.2em;
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeUp 1s ease both;
+  width: 100%;
+  max-width: 720px;
+}
+
+header .eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-bottom: 1.4rem;
+}
+
+header h1 {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
   line-height: 1.2;
-  cursor: pointer;
+  letter-spacing: 0.04em;
+  color: var(--text);
 }
 
-@media only screen and (min-width: 300px) {
-  section {
-	margin: 2em 1.2em;
+header .epigraph {
+  max-width: 480px;
+  margin: 0 auto 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+header .epigraph cite {
+  display: block;
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+/* ── Ornamental rule ── */
+.rule-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  color: var(--label);
+}
+
+.rule-ornament::before,
+.rule-ornament::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: var(--border);
+}
+
+.rule-ornament span {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ── Main content wrapper ── */
+main {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Intro card ── */
+.intro-card {
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.07);
+  padding: 2.2rem 2.4rem;
+  margin-bottom: 3rem;
+  animation: fadeUp 1s 0.15s ease both;
+  opacity: 0;
+  animation-fill-mode: both;
+}
+
+.intro-card h2 {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.intro-card p {
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+  max-width: 60ch;
+}
+
+.intro-card ul {
+  list-style: none;
+  margin: 0.5rem 0 1.2rem 0;
+  padding: 0;
+  border-left: 2px solid var(--border);
+  padding-left: 1.4rem;
+}
+
+.intro-card ul li {
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 0.45rem;
+}
+
+.intro-card ul li::before {
+  content: '—';
+  color: var(--label);
+  margin-right: 0.5rem;
+  font-style: normal;
+}
+
+.attribution-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--label);
+  margin-top: 1rem !important;
+}
+
+.attribution-link a {
+  color: var(--accent-dim);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.attribution-link a:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* ── Hobby sections ── */
+.hobby-section {
+  position: relative;
+  border: 1px solid var(--border);
+  background: white;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  padding: 2.2rem 2.4rem 2.4rem;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 1s ease both;
+  opacity: 0;
+  animation-fill-mode: both;
+}
+
+/* Staggered animation delays */
+.hobby-section:nth-child(1) { animation-delay: 0.2s; }
+.hobby-section:nth-child(2) { animation-delay: 0.3s; }
+.hobby-section:nth-child(3) { animation-delay: 0.4s; }
+.hobby-section:nth-child(4) { animation-delay: 0.5s; }
+.hobby-section:nth-child(5) { animation-delay: 0.6s; }
+
+/* Roman numeral label */
+.section-label {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--label);
+  opacity: 0.7;
+}
+
+.hobby-section h2 {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--deep);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.6rem;
+  padding-right: 3rem; /* avoid collision with .section-label */
+}
+
+/* Alternate section heading accent colors */
+.hobby-section:nth-child(odd) h2  { color: var(--accent); }
+.hobby-section:nth-child(even) h2 { color: var(--deep);   }
+
+/* Alternate left border tints */
+.hobby-section:nth-child(odd)  { border-left: 3px solid var(--accent-dim);  background: var(--accent-bg);  }
+.hobby-section:nth-child(even) { border-left: 3px solid var(--deep-dim);    background: var(--deep-bg);    }
+
+.hobby-section ol {
+  list-style: none;
+  counter-reset: hobby-counter;
+  padding: 0;
+  margin: 0;
+}
+
+.hobby-section ol li {
+  counter-increment: hobby-counter;
+  position: relative;
+  padding-left: 2.8rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  /* max-width: 62ch; */
+}
+
+.hobby-section ol li::before {
+  content: counter(hobby-counter, decimal-leading-zero);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: var(--label);
+  position: absolute;
+  left: 0;
+  top: 0.28em;
+  width: 1.8rem;
+  text-align: right;
+}
+
+.hobby-section ol li strong {
+  font-weight: 500;
+  color: inherit;
+}
+
+.hobby-section ol li .label {
+  white-space: nowrap;
+}
+
+/* Hover lift on sections */
+.hobby-section {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hobby-section:hover {
+  box-shadow: 0 8px 50px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 3.5rem;
+  max-width: 560px;
+  text-align: center;
+  animation: fadeUp 1s 0.7s ease both;
+  opacity: 0;
+  animation-fill-mode: both;
+}
+
+footer p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+footer p + p {
+  margin-top: 0.8rem;
+}
+
+footer .attribution {
+  margin-top: 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--label);
+}
+
+/* ── Animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  body { padding: 2.5rem 0.85rem 4.5rem; }
+
+  header { margin-bottom: 2rem; }
+
+  .intro-card,
+  .hobby-section { padding: 1.4rem 1.1rem 1.6rem; }
+
+  .section-label { top: 1.2rem; right: 1rem; }
+
+  .hobby-section h2 { padding-right: 2.5rem; }
+
+  .hobby-section ol li {
+    max-width: 100%;
   }
 
+  .rule-ornament::before,
+  .rule-ornament::after { width: 50px; }
+
+  footer { margin-top: 2.5rem; }
 }
